@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:signup_page/pages/home_page.dart';
+import 'package:get/get.dart';
+import 'controllers/todo_controller.dart';
+import 'views/home_page.dart';
 
 void main() {
+ Get.put<TodoController>(TodoController());
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Mir Efaj',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      title: 'ToDo MVC App',
       home: HomePage(),
     );
   }
 }
-
-
