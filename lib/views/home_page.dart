@@ -61,7 +61,9 @@ class HomePage extends GetView<TodoController> {
                   itemBuilder: (context, index) {
                     final item = controller.notes[index];
                     return Card(
-                      elevation: 5,
+                      shadowColor: Colors.blue,
+                      color: Colors.blue.shade50,
+                      elevation: 8,
                       child: ListTile(
                         title: Text(item.text),
                         trailing: IconButton(
