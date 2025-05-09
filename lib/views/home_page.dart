@@ -18,6 +18,7 @@ class HomePage extends GetView<TodoController> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+
             Row(
               children: [
                 Expanded(
@@ -25,9 +26,7 @@ class HomePage extends GetView<TodoController> {
                     controller: noteController,
                     decoration: InputDecoration(
                       hintText: 'Write your notes',
-                      hintStyle: TextStyle(
-                        color: Colors.black38
-                      ),
+                      hintStyle: TextStyle(color: Colors.black38),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -35,8 +34,9 @@ class HomePage extends GetView<TodoController> {
                   ),
                 ),
                 const SizedBox(width: 8),
+
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     controller.addNote(noteController.text);
                     noteController.clear();
                   },
@@ -44,16 +44,21 @@ class HomePage extends GetView<TodoController> {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(10)
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 18),)),
+                    child: Center(
+                      child: Text(
+                        "Add",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
                   ),
-                )
+                ),
               ],
             ),
             const SizedBox(height: 12),
-            // Reactive List
+
             Expanded(
               child: Obx(() {
                 return ListView.builder(
@@ -67,7 +72,10 @@ class HomePage extends GetView<TodoController> {
                       child: ListTile(
                         title: Text(item.text),
                         trailing: IconButton(
-                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                          icon: const Icon(
+                            Icons.delete_outline,
+                            color: Colors.redAccent,
+                          ),
                           onPressed: () => controller.deleteNote(index),
                         ),
                       ),
